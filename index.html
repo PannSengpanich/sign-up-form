@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="C:\Users\Windows10\Documents\GitHub\sign-up-form\style.css"
-    />
+    <link rel="stylesheet" href="style.css" />
 
     <title>Document</title>
   </head>
@@ -44,7 +41,7 @@
             <div class="password info">
               <label for="password">PASSWORD</label>
               <input
-                type="text"
+                type="password"
                 id="password"
                 name="password"
                 required
@@ -72,7 +69,7 @@
             <div class="confirmpassword info">
               <label for="confirmpassword">CONFIRM PASSWORD</label>
               <input
-                type="text"
+                type="password"
                 id="confirmpassword"
                 name="confirmpassword"
                 required
@@ -108,6 +105,11 @@
       const confirmPassword = document.getElementById("confirmpassword");
 
       confirmPassword.addEventListener("input", function () {
+        if (confirmPassword.validity.valueMissing) {
+          confirmPassword.setCustomValidity(
+            "You have not confirm password yet",
+          );
+        }
         if (password.value !== confirmPassword.value) {
           confirmPassword.setCustomValidity("Passwords do not match");
           return false;
