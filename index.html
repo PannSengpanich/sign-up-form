@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Windows10\Documents\GitHub\sign-up-form\style.css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container1">
+      <img src="wp9386445-night-lofi-4k-wallpapers.jpg" alt="cool wallpaper" />
+    </div>
+    <div class="container2">
+      <div class="section1">
+        <h2>
+          This is not a real online service! You know you need something like
+          this in your life to help you realize your deepest dreams. Sign up
+          <i>now</i> to get started.
+        </h2>
+        <h2>You know <i>you</i> want to.</h2>
+      </div>
+      <div class="section2">
+        <form id="form1" action="" method="post">
+          <div class="left">
+            <div class="firstname info">
+              <label for="firstname">FIRST NAME</label>
+              <input type="text" id="firstname" name="firstname" required />
+            </div>
+            <div class="email info">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="password info">
+              <label for="password">PASSWORD</label>
+              <input
+                type="text"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              />
+            </div>
+          </div>
+          <div class="right">
+            <div class="lastname info">
+              <label for="lastname">LAST NAME</label>
+              <input type="text" id="lastname" name="lastname" required />
+            </div>
+            <div class="phonenumber info">
+              <label for="phonenumber">PHONE NUMBER</label>
+              <input
+                type="text"
+                id="phonenumber"
+                name="phonenumber"
+                required
+                minlength="10"
+                maxlength="10"
+              />
+            </div>
+            <div class="confirmpassword info">
+              <label for="confirmpassword">CONFIRM PASSWORD</label>
+              <input
+                type="text"
+                id="confirmpassword"
+                name="confirmpassword"
+                required
+                minlength="8"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="section3">
+        <button type="submit" form="form1">CREATE ACCOUNT</button>
+        <p>Already have an account? <a href="">Log in</a></p>
+      </div>
+    </div>
+    <script>
+      function validateInputs() {
+        const infoInputs = document.querySelectorAll(".info");
+        infoInputs.forEach(function (info) {
+          if (info.validity.valueMissing) {
+            info.setCustomValidity("You need to enter something");
+          } else if (info.validity.typeMismatch) {
+            info.setCustomValidity("I am expecting an email address!");
+          } else if (info.validity.tooShort) {
+            info.setCustomValidity(
+              `Should be at least ${info.minLength} characters; you entered ${info.value.length}.`,
+            );
+          } else {
+            info.setCustomValidity("");
+          }
+        });
+      }
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirmpassword");
+
+      if (password.value !== confirmPassword.value) {
+        confirmPassword.setCustomValidity("Passwords do not match");
+        return false;
+      } else {
+        confirmPassword.setCustomValidity("");
+        return true;
+      }
+    </script>
+  </body>
+</html>

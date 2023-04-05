@@ -1,0 +1,85 @@
+:root {
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  margin: 0px;
+  display: flex;
+}
+
+body > div {
+  flex-grow: 1;
+  box-sizing: border-box;
+  height: 100vh;
+}
+.container1 {
+  width: 47vw;
+  height: 100vh;
+}
+img {
+  height: 100vh;
+}
+.container2 {
+  width: 53vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+.section2 {
+  background-color: aliceblue;
+  padding: 20px 0px;
+  box-shadow: 2px 2px 5px grays;
+}
+.section3 {
+  padding: 20px 0;
+}
+.section1,
+.section3 {
+  background-color: black;
+  height: 100%;
+  color: whitesmoke;
+  line-height: 40px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 150px 20px 20px;
+}
+label {
+  margin-bottom: 0.5rem;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+  margin: 10px 20px;
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 0px;
+}
+p {
+  margin: 10px 20px;
+}
+a {
+  color: white;
+}
+input {
+  border: 1px solid #ccc;
+}
+input:valid {
+  border: 1px green solid;
+}
+input:invalid {
+  border: 1px red solid;
+}
+input:focus {
+  border: 1px blue solid;
+}
+form {
+  display: flex;
+}
