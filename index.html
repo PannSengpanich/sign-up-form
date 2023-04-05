@@ -33,7 +33,13 @@
             </div>
             <div class="email info">
               <label for="email">EMAIL</label>
-              <input type="email" id="email" name="email" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                minlength="4"
+                required
+              />
             </div>
             <div class="password info">
               <label for="password">PASSWORD</label>
@@ -82,13 +88,13 @@
       </div>
     </div>
     <script>
-      function validateInputs() {
-        const infoInputs = document.querySelectorAll(".info");
-        infoInputs.forEach(function (info) {
+      const infoInputs = document.querySelectorAll(".info");
+      infoInputs.forEach(function (info) {
+        info.addEventListener("input", function () {
           if (info.validity.valueMissing) {
             info.setCustomValidity("You need to enter something");
           } else if (info.validity.typeMismatch) {
-            info.setCustomValidity("I am expecting an email address!");
+            info.setCustomValidity("Type Wrong");
           } else if (info.validity.tooShort) {
             info.setCustomValidity(
               `Should be at least ${info.minLength} characters; you entered ${info.value.length}.`,
@@ -97,17 +103,19 @@
             info.setCustomValidity("");
           }
         });
-      }
+      });
       const password = document.getElementById("password");
       const confirmPassword = document.getElementById("confirmpassword");
 
-      if (password.value !== confirmPassword.value) {
-        confirmPassword.setCustomValidity("Passwords do not match");
-        return false;
-      } else {
-        confirmPassword.setCustomValidity("");
-        return true;
-      }
+      confirmPassword.addEventListener("input", function () {
+        if (password.value !== confirmPassword.value) {
+          confirmPassword.setCustomValidity("Passwords do not match");
+          return false;
+        } else {
+          confirmPassword.setCustomValidity("");
+          return true;
+        }
+      });
     </script>
   </body>
 </html>
